@@ -1,0 +1,33 @@
+{
+    "name" 			: "wpdevelopersclub/wpdevsclub-sticky-footer",
+    "description" 	: "WP Developers Club Sticky Footer Plugin",
+    "type"          : "project",
+    "keywords" 		: ["wordpress", "theme", "wp", "plugin"],
+    "homepage" 		: "https://wpdevelopersclub.com",
+    "license" 		: "GPL-2.0+",
+    "authors": [
+        {
+            "name" 	: "Tonya",
+            "email" : "hello@wpdevelopersclub.com"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4.0"
+    },
+    "autoload" : {
+        "classmap" : [
+            "class-plugin.php",
+            "lib/support/class-sticky-footer.php"
+        ],
+        "files": []
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "vendor-dir": "assets/vendor"
+    },
+    "minimum-stability": "dev"
+}

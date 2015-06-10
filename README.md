@@ -9,6 +9,6 @@ __License:__ [GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ### Requirements
 
-It does require the Genesis framework.  If you are not using Genesis, just swap out some of the hooks, like 'genesis_init' with 'init'.
-
-It also requires the WPDevsClub Core Plugin.
+This plugin requires:
+* the Genesis framework.
+* [Core Plugin](https://github.com/wpdevelopersclub/WPDC_Core) 

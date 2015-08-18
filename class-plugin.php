@@ -4,7 +4,7 @@
  * WPDevsClub Sticky Footer Plugin
  *
  * @package     WPDC_Sticky_Footer
- * @since       1.0.5
+ * @since       1.0.6
  * @author      WPDevelopersClub and hellofromTonya
  * @link        http://wpdevelopersclub.com/
  * @license     GNU General Public License 2.0+

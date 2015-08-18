@@ -119,8 +119,9 @@ class Sticky_Footer extends Base {
 	protected function render_nav( $location ) {
 
 		// Do nothing if menu not supported
-		if ( ! genesis_nav_menu_supported( $this->config['theme_locations'][ $location ] ) )
+		if ( ! genesis_nav_menu_supported( $this->config['theme_locations'][ $location ] ) ) {
 			return;
+		}
 
 		$class = 'menu genesis-nav-menu menu-' . $this->config['theme_locations'][ $location ];
 		if ( genesis_superfish_enabled() ) {

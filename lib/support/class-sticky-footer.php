@@ -25,6 +25,13 @@ class Sticky_Footer extends Base {
 
 	protected $permalink = '';
 
+	/**
+	 * Flags if the user is logged in
+	 *
+	 * @var bool
+	 */
+	protected $is_user_logged_in = false;
+
 	/******************************
 	 * Instantiate & Initializers
 	 *****************************/
@@ -79,6 +86,8 @@ class Sticky_Footer extends Base {
 	 * @return string
 	 */
 	public function render() {
+		$this->is_user_logged_in = is_user_logged_in();
+
 		$this->load_view( 'sticky_footer' );
 	}
 

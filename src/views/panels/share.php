@@ -1,4 +1,4 @@
-<button type="button" class="panel-item share" data-tooltip="<?php _e( 'Share', 'wpdevsclub' ); ?>"  data-subpanel="sticky-footer-subpanel-share">
+<button type="button" class="panel-item share" data-tooltip="<?php _e( 'Share', 'wpdc' ); ?>"  data-subpanel="sticky-footer-subpanel-share">
 	<i class="fa fa-share-alt"></i>
 </button>
 <div id="sticky-footer-subpanel-share" class="subpanel">

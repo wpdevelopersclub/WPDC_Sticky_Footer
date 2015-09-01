@@ -3,19 +3,19 @@
 /**
  * WP Developers Club Sticky Footer
  *
- * @package     WPDC_Sticky_Footer
- * @author      WPDevelopersClub and hellofromTonya
- * @license     GPL-2.0+
- * @link        http://wpdevelopersclub.com/
- * @copyright   2015 WP Developers Club
+ * @package         WPDC_Sticky_Footer
+ * @author          WPDevelopersClub and hellofromTonya
+ * @license         GPL-2.0+
+ * @link            https://wpdevelopersclub.com/
+ * @copyright       2015 WP Developers Club
  *
  * @wordpress-plugin
  * Plugin Name:     WP Developers Club Sticky Footer
  * Plugin URI:      http://wpdevelopersclub.com/
  * Description:     Configurable Sticky footer with quick link panels added to enabled articles and pages.
- * Version:         1.0.7
+ * Version:         1.1.0
  * Author:          WP Developers Club and Tonya
- * Author URI:      http://wpdevelopersclub.com
+ * Author URI:      https://wpdevelopersclub.com
  * Text Domain:     wpdevsclub
  * Requires WP:     3.5
  * Requires PHP:    5.4
@@ -37,7 +37,8 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-use WPDevsClub_Core\Models\I_Model;
+use WPDevsClub_Core\Config\I_Config;
+use WPDevsClub_Core\Config\Factory;
 
 // Oh no you don't. Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -58,18 +59,34 @@ if ( ! defined( 'WPDC_STICKY_FOOTER_URL' ) ) {
 
 require_once( __DIR__ . '/assets/vendor/autoload.php' );
 
-if ( version_compare( $GLOBALS['wp_version'], Plugin::MIN_WP_VERSION, '>' ) ) {
-
-	add_action( 'wpdevclub_setup_sticky_footer', __NAMESPACE__ . '\\launch', 20 );
-	/**
-	 * Launch the plugin
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param array     $config
-	 * @return null
-	 */
-	function launch( array $config ) {
+add_action( 'wpdevclub_setup_sticky_footer', __NAMESPACE__ . '\\launch', 20 );
+/**
+ * Launch the plugin
+ *
+ * @since 1.1.0
+ *
+ * @param I_Config $config
+ * @return null
+ */
+function launch( I_Config $config ) {
+	if ( version_compare( $GLOBALS['wp_version'], Plugin::MIN_WP_VERSION, '>' ) ) {
+		if ( is_array( $config ) ) {
+			$config = Factory::create( $config );
+		}
 		new Plugin( $config );
 	}
 }
+
+/**
+ * Load up the plugin's variables within the Container
+ *
+ * @since 1.1.0
+ *
+ * @return null
+ */
+add_action( 'wpdevsclub_do_service_providers', function( $core ) {
+	$core['sticky_footer.dir'] = WPDC_STICKY_FOOTER_DIR;
+	$core['sticky_footer.url'] = WPDC_STICKY_FOOTER_URL;
+	$core['sticky_footer.default_config'] = WPDC_STICKY_FOOTER_DIR . 'config/structure-defaults.php';
+	$core['sticky_footer.config.plugin'] = WPDC_STICKY_FOOTER_DIR . 'config/plugin.php';
+} );

@@ -17,7 +17,7 @@
     "autoload" : {
         "classmap" : [
             "class-plugin.php",
-            "lib/support/class-sticky-footer.php"
+            "src/support/class-sticky-footer.php"
         ],
         "files": []
     },

@@ -8,7 +8,6 @@
  * @author      WPDevelopersClub and hellofromTonya
  * @link        https://wpdevelopersclub.com/
  * @license     GNU General Public License 2.0+
- * @copyright   2015 WP Developers Club
  */
 
 use WPDevsClub_Core\Config\Arr_Config;

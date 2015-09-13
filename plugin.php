@@ -59,7 +59,7 @@ if ( ! defined( 'WPDC_STICKY_FOOTER_URL' ) ) {
 
 require_once( __DIR__ . '/assets/vendor/autoload.php' );
 
-add_action( 'wpdevclub_setup_sticky_footer', __NAMESPACE__ . '\\launch', 20 );
+add_action( 'wpdevclub_setup_sticky_footer', __NAMESPACE__ . '\\launch' );
 /**
  * Launch the plugin
  *
